@@ -1,0 +1,5 @@
+---
+# tasks file for syslog-ng
+- include: install.yml
+
+- include: configure.yml

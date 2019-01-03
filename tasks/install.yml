@@ -1,0 +1,7 @@
+---
+# Install task file for syslog-ng
+
+- name: Install Syslog-ng
+  yum:
+    name: syslog-ng
+    state: present

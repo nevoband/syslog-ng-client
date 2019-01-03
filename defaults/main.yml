@@ -1,0 +1,36 @@
+---
+# defaults file for syslog-ng
+
+# Location of syslogng certs
+syslogng_ca_path: '/etc/syslog-ng/ca.d'
+syslogng_cert_path: '/etc/syslog-ng/cert.d'
+
+syslogng_ca_file: "cacert.pem"
+syslogng_cert_file: "clientcert.pem"
+syslogng_key_file: "clientkey.pem"
+
+syslogng_certs_path_owner: "root"
+syslogng_certs_path_group: "root"
+
+syslogng_cert_mode: "0700"
+
+syslogng_ca_data: ""
+syslogng_cert_data: ""
+syslogng_key_data: ""
+
+syslogng_cert_force_replace: true
+
+syslogng_server_dn: ""
+syslogng_server_port: "6514"
+syslogng_server_protocol: "tcp"
+
+log_files:
+  - path: "/var/log/httpd/access_log"
+    program: "apache-access"
+  - path: "/var/log/httpd/error_log"
+    program: "apache-error"
+  - path: "/var/log/httpd/ssl_access_log"
+    program: "apache-ssl-access"
+  - path: "/var/log/httpd/ssl_error_log"
+    program: "apache-ssl-error"
+  

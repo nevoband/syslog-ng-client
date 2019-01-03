@@ -1,0 +1,8 @@
+---
+# handlers file for syslog-ng
+
+- name: Enable syslog-ng
+  service:
+    name: syslog-ng
+    state: restarted
+    enabled: yes

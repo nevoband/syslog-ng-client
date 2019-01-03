@@ -1,0 +1,51 @@
+---
+
+# configure syslog-ng
+
+- name: Ensure ssl cert directory exists on client
+  file: path="{{ syslogng_cert_path }}" state=directory
+
+- name: Ensure CA directory exists on client
+  file: path="{{ syslogng_ca_path }}" state=directory
+
+- name: copy certs and key to client machine
+  copy:
+    content: "{{ item.content }}"
+    dest: "{{ item.dest }}"
+    owner: "{{ syslogng_certs_path_owner }}"
+    group: "{{ syslogng_certs_path_owner }}"
+    mode: "{{ syslogng_cert_mode }}"
+    force: "{{ syslogng_cert_force_replace }}"
+  with_items:
+  - { content: "{{ syslogng_ca_data }}", dest: "{{ syslogng_ca_path }}/{{ syslogng_ca_file }}" }
+  - { content: "{{ syslogng_cert_data }}", dest: "{{ syslogng_cert_path }}/{{ syslogng_cert_file }}" }
+  - { content: "{{ syslogng_key_data }}", dest: "{{ syslogng_cert_path }}/{{ syslogng_key_file }}" }
+  loop_control: 
+    label: "{{ item.dest }}"
+    
+- name: Create hash of local certificate
+  command: >
+    openssl x509 -noout -hash -in {{ syslogng_ca_path }}/{{ syslogng_ca_file }}
+  register: hash_output
+
+- name: Create symbolic link to local certificate
+  file:
+    src: "{{ syslogng_ca_path }}/{{ syslogng_ca_file }}"
+    dest: "{{ syslogng_ca_path }}/{{hash_output.stdout }}.0"
+    state: link
+
+- name: Configure Syslog-ng
+  template:
+    backup: yes
+    src: syslog-ng.conf.j2
+    dest: /etc/syslog-ng/syslog-ng.conf
+    mode: 0644
+    owner: root
+    group: root
+    #validate: /usr/sbin/syslog-ng --syntax-only --cfgfile %s
+  notify: Enable syslog-ng
+
+- name: Start service syslog-ng, if not started
+  service:
+    name: syslog-ng
+    state: started
