@@ -1,0 +1,77 @@
+---
+
+- name: Converge
+  hosts: all
+  vars:
+    syslogng_ca_data: |
+        -----BEGIN CERTIFICATE-----
+        MIIDYDCCAkigAwIBAgIJAM8t35e+Giz6MA0GCSqGSIb3DQEBCwUAMEUxCzAJBgNV
+        BAYTAkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRlcm5ldCBX
+        aWRnaXRzIFB0eSBMdGQwHhcNMTkwMjE0MjIyOTIyWhcNMjExMjA0MjIyOTIyWjBF
+        MQswCQYDVQQGEwJBVTETMBEGA1UECAwKU29tZS1TdGF0ZTEhMB8GA1UECgwYSW50
+        ZXJuZXQgV2lkZ2l0cyBQdHkgTHRkMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIB
+        CgKCAQEAvkPeKqeopcNVeevUAMInhPP+JLPYn0oqkQcNAcloec7liJKi14xUZzio
+        BRJQjqEjO0ZK0RhpofCeDqCsIrZp3n+aSes5DPfoNmERV3LcySxJPY7yUR+YBKMc
+        QLvh+zkZIlASre6fcs/yk8gclKo+kIM5CinN4qp3OSsmWA1M3fixgDpG8Sk9W0YY
+        m8qua2Dp5+BRxRH243tVXisldQUPT3vUGffT1FLI2iblFhBw/clNUIseHImFXeBV
+        vI7pyZ6P2L2aBbOjS0PS29hVZj16kqikwKANHA7zY/6k7qknc7jXFbOD2KJy7dJx
+        PGuan5/k/O0fzY3mA+rifwaSKC8HiwIDAQABo1MwUTAdBgNVHQ4EFgQUhxAwU+6G
+        UjAI659k4SslE7KzhEQwHwYDVR0jBBgwFoAUhxAwU+6GUjAI659k4SslE7KzhEQw
+        DwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAuiJcETBK0Bn/WuH6
+        FlCQUk1tRDGiwaWRDsnwDZ6N8/cX788NHWi3T5kknMYL0J4h5JF14RNAvMz43RIe
+        TU9V9k3DREHYMKnF4EmmvzMmQtZi+5wwRXtf20cRnOFFMJuDNRX2Fqo4tAI2ENcr
+        SSXgfkDgoOAvmgfZzXtUNMXtkW0qCdrSsAWP3wGSzwk7Lql6aBZwePatweMEhA6b
+        8gue1ltd3ANT7L1awJGt6jJPjrk8EJZikOq6cCbAWpD+VPvN7gk8BDdSYtHTkUP/
+        FXvoVa4kIjtt7IrgCLeosPj68tNeIhiaea4ge3YCzSURq4itwp9hjHT2dZVoewGd
+        7FeiYA==
+        -----END CERTIFICATE-----
+    syslogng_cert_data: |
+        -----BEGIN CERTIFICATE-----
+        MIIDBjCCAe4CCQDRPyL8L8DfnDANBgkqhkiG9w0BAQsFADBFMQswCQYDVQQGEwJB
+        VTETMBEGA1UECAwKU29tZS1TdGF0ZTEhMB8GA1UECgwYSW50ZXJuZXQgV2lkZ2l0
+        cyBQdHkgTHRkMB4XDTE5MDIxNDIyNDYwN1oXDTIwMDYyODIyNDYwN1owRTELMAkG
+        A1UEBhMCQVUxEzARBgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoMGEludGVybmV0
+        IFdpZGdpdHMgUHR5IEx0ZDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+        AKxP3pvWIIDihobEqYXiVLhiwG2fIpSAQA3heEtaG0tgVROBIA2GtA3qz9h7/6FK
+        BcbKRbArN1/V5QTwNvRQXeHIT/ynUJgE+dSkM0Vv1whryWQdlPSUJ8WCE/bR4UkC
+        kXlSdw0nTxZsrPq5V9Pyu1FrV8cNKY3sGrogwUV2WxUMDQdHo68o4fEFoOHxwlsz
+        hyloD05fIcUZQ0rNb/4o27/wF5nhn8HLUhzxgFPVqpOHyngWrFN/ECGNfqqVqyAA
+        2mxXH9X8dUagEcKXmEdBwp7Y7+gQpzbYFfDaVY7PzKniIhuwKnjq/wcELTQXahDj
+        1SPxCPmLSTAwsiffKL1CzAcCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAeOrYb/43
+        3CDFOkyAJPyV/q+pJ6x/USxlrSx8H8ZIYkZblZLnbZfplwMogDrHRFna2/r+XSwN
+        vrXY/HC4xJY1b4cxBk5H2ryD+DJx2IPQZCaI41fCx2M7JWpUowWxKk6uQxkWqfp7
+        It42jlSmvWMEZoadeLqVwF1uiJ9BeZi6fRa2AI4BTbW/TPerYXhvbHi7i4vepj8w
+        J2eVZodt6vMc5eIlTApRUtb4KqBlM6F+VfrXqI6E4C4LMkM1t9TP5/P2p+YWPHwC
+        rUVS4QKlyMW3dU4mwu98Yy6WeCAPZE7Kj4C8i3NEF9eU+UtsoiDCGMF3jccqSXng
+        ssl0SPqsqlm9MQ==
+        -----END CERTIFICATE-----
+    syslogng_key_data: |
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEowIBAAKCAQEArE/em9YggOKGhsSpheJUuGLAbZ8ilIBADeF4S1obS2BVE4Eg
+        DYa0DerP2Hv/oUoFxspFsCs3X9XlBPA29FBd4chP/KdQmAT51KQzRW/XCGvJZB2U
+        9JQnxYIT9tHhSQKReVJ3DSdPFmys+rlX0/K7UWtXxw0pjewauiDBRXZbFQwNB0ej
+        ryjh8QWg4fHCWzOHKWgPTl8hxRlDSs1v/ijbv/AXmeGfwctSHPGAU9Wqk4fKeBas
+        U38QIY1+qpWrIADabFcf1fx1RqARwpeYR0HCntjv6BCnNtgV8NpVjs/MqeIiG7Aq
+        eOr/BwQtNBdqEOPVI/EI+YtJMDCyJ98ovULMBwIDAQABAoIBAQCT5PGSG9VGCieg
+        4IcILNy+bbPv4thRUUqpH06ajjpDFemvlfKm6Wj9UP8YNkWQb/JJTy9FJ7KdhP7O
+        oEbqp1gNBFry5cCc2hh8VHrVLEsKJUlzrpg83DTOpvjvrfCJM7UcxpT8KzMMcjZ9
+        9DrX5cy080chx8BU2cOO4bJBJnbCtm6ISTtejaFuRrg/rh6+F22RdVE2XkRrauRS
+        uPwnaYWYG0RQMLELWaBWl4HkzHln5kP3wf7Rf/169KP9UnmLbIZNVlzdY2OQIiNV
+        Iaov0wrcF6L7HVw6Bf/kR/sC1tyAhLioulcpCLb/rrHUxlvo4B8E7yPJOWw1H6qR
+        6XWU5qLhAoGBANd9ETgLtFebjeyFYxuYtLNpAWyllsd/b6DqRl/AMN451UnPm0pm
+        Zm81w+pm6aAkvh1a/GX4h7IHSqKTFnuXeWIx0UH5t+2dxJPL5xA5zEwJXVE9p0mX
+        4Ch2Re1m17+WnZ/tX1PGIGEmf+5rDCqe92/twypRs4JHl5n7DeuyIMgvAoGBAMy0
+        0jc17siFSjyOaI6CrdB61nQAtA9oZAfgsKXDMLhLRetPpSCgrVm9m+JYqdI3OrVO
+        Oj08uZrDvCIpLimwrcORfdsThrCMiFrSwjFf2wzNRKWGe8qmcxAaNw7EwVvbmhm3
+        m/ENW/FQtkOhT9bM3ROo93G8niTw760ZM7C9fWupAoGAHyoBQX+/1yOyBNDNooIV
+        MBUxlYrlIXj2pej7wIFFD/6BMCmMJdhlXBQEf3PeucBWllxAQGcPCNoxGw32pG0l
+        quPVhZsd1ImKkm1cv2X8e8qm6kbmWKhUTMW+GzVSYmzf4u8raCwxJpuwyMRGgCt5
+        UYCrRwWF1oOQEz7RppKeVxUCgYAQssdbHZkm3kiZ+/vndB19nieUOuJ1R0yxn9CJ
+        FQ0KW4mOkmaj7Ld3VJI8uoLP1RWC6KizihqR11mnZ7iOSg1CoMGld0hLaotM7VhN
+        8sXJm4z3+6ppc357V8gZ+k7TkWxWoLWlyjMv0iesCKKcoQV/rw7QRlSYKtdCRYYD
+        6tEqUQKBgAabbRm9KCn2/6HCK0Wa6Hzn6+41lvjqQYxJofx9W95bO+MAna+RyHjT
+        PkEMBDjf5Vbqub0vxTRvVvWmo17FntwuBkQfBXEPDIFH6xgcjOEnuqc7sfNFV3//
+        FNR5qAmBOclBIeeUoVu7MpGmBM9iucz2vgiYZUgnrvcysdfI7JYt
+        -----END RSA PRIVATE KEY-----
+  roles:
+    - role: syslog-ng-client
