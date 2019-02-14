@@ -14,9 +14,12 @@ syslogng_certs_path_group: "root"
 
 syslogng_cert_mode: "0700"
 
-syslogng_ca_data: ""
-syslogng_cert_data: ""
-syslogng_key_data: ""
+syslogng_ca_data: "|
+Certificate Authority"
+syslogng_cert_data: "|
+Domain Name Certificate"
+syslogng_key_data: "|
+Private Key"
 
 syslogng_cert_force_replace: true
 
@@ -33,4 +36,3 @@ log_files:
     program: "apache-ssl-access"
   - path: "/var/log/httpd/ssl_error_log"
     program: "apache-ssl-error"
-  

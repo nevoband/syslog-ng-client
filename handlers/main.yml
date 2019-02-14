@@ -1,8 +1,9 @@
 ---
-# handlers file for syslog-ng
 
-- name: Enable syslog-ng
-  service:
+# handlers file for syslog-ng
+- name: enable syslog-ng
+  systemd:
     name: syslog-ng
     state: restarted
-    enabled: yes
+    daemon_reload: true
+    enabled: true

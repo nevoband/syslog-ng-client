@@ -1,5 +1,7 @@
 ---
-# tasks file for syslog-ng
+
+# install required packages
 - include: install.yml
 
+# configure syslog-ng to send logs
 - include: configure.yml
